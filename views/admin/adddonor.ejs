@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Donor | Blood Donation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+</head>
+
+<body>
+    <%- include('header') %>
+        <%- include('sidebar') %>
+            <div class="message"></div>
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Add Donor</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Add Donor</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section>
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Add Donor</h3>
+                                        <a href="donor" class="btn btn-success btn-sm float-right">Donor List</a>
+                                    </div>
+                                    <div class="card-body">
+                                        <form class="form-horizontal" id="add-donor" action="/donor" method="post">
+                                            <div class="form-group">
+                                                <label for="">Donor Name</label>
+                                                <input type="text" class="form-control donor_name" name="name"
+                                                    placeholder="Donor Name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="mr-2 mb-0">Gender: </label>
+                                                <label for="" class="mb-0 mr-2">
+                                                    <input type="radio" class="mr-1 gender" name="gender" value="Male"
+                                                        checked="">
+                                                    Male
+                                                </label>
+                                                <label for="" class="mb-0 mr-2">
+                                                    <input type="radio" class="mr-1 gender" name="gender"
+                                                        value="Female">
+                                                    Female
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Email</label>
+                                                <input type="email" class="form-control email" name="email"
+                                                    placeholder="Email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Phone</label>
+                                                <input type="number" class="form-control phone" name="phone"
+                                                    placeholder="Phone" pattern="([0-9]{10})" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Address</label>
+                                                <input type="text" class="form-control address" name="address"
+                                                    placeholder="Address" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Pin Code</label>
+                                                <input type="number" class="form-control pin_code" name="pincode"
+                                                    placeholder="Pin Code" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">City</label>
+                                                <select class="form-control city" name="cityid">
+                                                    <option selected>Select City</option>
+                                                    <% cities.forEach(city=> { %>
+                                                        <option value="<%= city._id %>">
+                                                            <%= city.name %>
+                                                        </option>
+                                                        <% }) %>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">State</label>
+                                                <input type="text" class="form-control state" name="state"
+                                                    placeholder="State" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Country</label>
+                                                <input type="text" class="form-control country" name="country"
+                                                    placeholder="Country" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Blood Group</label>
+                                                <select class="form-control" name="bloodgroupId">
+                                                    <option selected>Select Blood Group</option>
+                                                    <% bloodgroups.forEach(bloodgroup=> { %>
+                                                        <option value="<%= bloodgroup._id %>">
+                                                            <%= bloodgroup.name %>
+                                                        </option>
+                                                        <% }); %>
+                                                </select>
+                                            </div>
+                                            <input type="submit" class="btn btn-primary" value="Save">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+</body>
+
+</html>
+<%- include('footer') %>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Blood Donation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <%- include('header') %>
+        <div class="message"></div>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-3 col-md-6">
+                        <div class="signup-form">
+                            <h3 class="title bg-secondary m-0 text-white py-3 text-center" style="font-weight:600;">
+                                Login</h3>
+                            <form class="form-horizontal yourform" id="userlogin" method="post" action="/index">
+                                <div class="form-group">
+                            <input  type="radio" id="user_type" name="radio_btn" value="User" checked>
+                            <label for="" class="mr-2">User</label>
+                            <input type="radio" id="user_type" name="radio_btn" value="Donor">
+                            <label for="">Donor</label>
+                        </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="text" class="form-control email" name="email"
+                                        placeholder="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="password" class="form-control password" name="password"
+                                        placeholder="Password" required>
+                                </div>
+                                <input type="submit" class="btn1 btn" value="Login">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+<%- include('footer') %>
+
